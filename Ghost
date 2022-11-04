@@ -130,7 +130,7 @@ getgenv().shared = {
     autohitboss = false,
     boardspeed = 1,
     walkspeed = 16,
-    jumppower = 20
+    jumppower = 21
 }
 
 if not isfolder("FallAngelHub") then
