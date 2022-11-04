@@ -421,12 +421,18 @@ local mainhub_arealist = {
     "BloxCity",
     "JunkYard",
     "Sewer",
+    "FirstRoute",
+    "ConstructionSite",
     "WildWest",
     "Area51",
     "Mine",
+    "SecondRoute",
+    "Pyramid",
     "Beach",
     "UnderWater",
     "Volcano",
+    "ThirdRoute",
+    "IceCave",
     "LuckCat",
     "UltimateFarmluckyCatInc",
     "UltimateFarm" 
@@ -436,12 +442,16 @@ local ghostworld_arealist = {
     "GhostlyIslandT1",
     "GhostlyIslandT2",
     "GhostlyIslandT3",
+    "GhostlyIsland",
     "CastleBottom",
     "CastleTop",
+    "Castle",
     "MusicMeadowsT1",
     "MusicMeadowsT2",
+    "MusicMeadows",
     "HauntedCastleT1",
     "HauntedCastleT2",
+    "HauntedCastle",
     "LuckCat",
     "UltimateFarmluckyCatInc",
     "UltimateFarm" 
@@ -452,14 +462,17 @@ local backdoor_arealist = {
     "Winter_Tundra",
     "Mushroom_Forest",
     "Twisting_River",
+    "FirstRoute",
     "Crystal_Cave",
     "Farm",
     "Spaceship",
     "Barn",
+    "SecondRoute",
     "Behive",
     "DataStream",
     "ReverseCity",
     "BloxByteHQ",
+    "ThirdRoute",
     "AgentsHQ" ,
     "LuckCat",
     "UltimateFarmluckyCatInc",
@@ -482,10 +495,12 @@ local rement_arealist = {
     "BlueForest",
     "CrystalCanyon",
     "FloatingBridge",
+    "FirstRoute",
     "WonderHouse",
     "ScrapCity",
     "UnderwaterRuins",
     "HiddenCaverns",
+    "SecondRoute",
     "TreeTops",
     "UltimateFarmluckyCatInc",
     "UltimateFarm" 
@@ -589,6 +604,12 @@ local function ghost_list_giver(selarea)
         "Rat"
     }
 
+    local ConstructionSite = {
+        --4
+        "Worker",
+        "Pigeon"
+    }
+
     local WildWest = {
         --5
         "Bandit",
@@ -607,6 +628,12 @@ local function ghost_list_giver(selarea)
         "Living Rock"
     }
 
+    local Pyramid = {
+        --7
+        "Pharaoh",
+        "Mummy"
+    }
+
     local Beach = {
         --8
         "Pirate",
@@ -623,6 +650,12 @@ local function ghost_list_giver(selarea)
         --10
         "Islander",
         "Magma Monster"
+    }
+    
+    local IceCave = {
+        --10
+        "Explorer",
+        "Penguin"
     }
 
     --GHOST WORLD
@@ -643,6 +676,16 @@ local function ghost_list_giver(selarea)
         "Spooky",
         "Pixie"
     }
+    
+    local GhostlyIsland = {
+        --10
+        "Spooky",
+        "Pixie",
+        "Pinwheel",
+        "Blue Ray",
+        "Jester",
+        "Jelly"
+    }
 
     local CastleBottom = {
         --10
@@ -654,6 +697,14 @@ local function ghost_list_giver(selarea)
         --10
         "Wizard",
         "Horse"
+    }
+
+    local Castle = {
+        --10
+        "Wizard",
+        "Horse",
+        "Rogue",
+        "Knight"
     }
 
     local MusicMeadowsT1 = {
@@ -668,6 +719,14 @@ local function ghost_list_giver(selarea)
         "Purple Note"
     }
 
+    local MusicMeadows = {
+        --10
+        "DJ",
+        "Purple Note",
+        "Bongo man",
+        "Yellow Note"
+    }
+
     local HauntedCastleT1 = {
         --10
         "Viney",
@@ -678,6 +737,14 @@ local function ghost_list_giver(selarea)
         --10
         "Adventurer",
         "Dragonfly"
+    }
+
+    local HauntedCastle = {
+        --10
+        "Adventurer",
+        "Dragonfly",
+        "Viney",
+        "Blooming"
     }
 
     --backdoor
@@ -931,6 +998,80 @@ local function ghost_list_giver(selarea)
  
 
 
+    --routes
+    
+    local FirstRoute = {
+        --23
+        "Businessman",
+        "Street Cat",
+        "Mechanic",
+        "Garbage Bin",
+        "Paper Bag Man",
+        "Rat",
+
+        "Frost Spirit",
+        "Snowstorm",
+        "Flutter Spirit",
+        "Mushroom",
+        "Water Spirit",
+        "Glitcher",
+
+        "Night Wizard",
+        "Aqua Parrot",
+        "Gem Troll",
+        "Gryffin",
+        "Village Raider",
+        "Pig"
+    }
+    
+    local SecondRoute = {
+        --23
+        "Bandit",
+        "Cowboy",
+        "Scientist",
+        "Zorg",
+        "Miner",
+        "Living Rock",
+
+        "Farmer",
+        "Crazy Cow",
+        "Parasite",
+        "Super Computer",
+        "Digital Bandit",
+        "Trojan Horse",
+        
+        "Scrap Hunter",
+        "Floppy Slime",
+        "Sea Walker",
+        "Fish Footman",
+        "Cave Ninja",
+        "Axolotl Princess"
+    }
+    
+local ThirdRoute = {
+        --23
+        "Pirate",
+        "Parrot",
+        "Diver",
+        "Mermaid",
+        "Islander",
+        "Magma Monster",
+
+        "Web Surfer",
+        "Binary",
+        "Byte",
+        "Digi Cat",
+        "Guardian",
+        "Data Fury",
+        
+        "Scrap Hunter",
+        "Floppy Slime",
+        "Sea Walker",
+        "Fish Footman",
+        "Cave Ninja",
+        "Axolotl Princess"
+    }
+    
     if selarea == "Forest" then
         return Forest
     elseif selarea == "BloxCity" then
@@ -939,18 +1080,24 @@ local function ghost_list_giver(selarea)
         return JunkYard
     elseif selarea == "Sewer" then
         return Sewer
+    elseif selarea == "ConstructionSite" then
+        return ConstructionSite
     elseif selarea == "WildWest" then
         return WildWest
     elseif selarea == "Area51" then
         return Area51
     elseif selarea == "Mine" then
         return Mine
+    elseif selarea == "Pyramid" then
+        return Pyramid
     elseif selarea == "Beach" then
         return Beach
     elseif selarea == "UnderWater" then
         return UnderWater
     elseif selarea == "Volcano" then
         return Volcano
+    elseif selarea == "IceCave" then
+        return IceCave
 
     elseif selarea == "GhostlyIslandT1" then
         return GhostlyIslandT1
@@ -958,18 +1105,26 @@ local function ghost_list_giver(selarea)
         return GhostlyIslandT2
     elseif selarea == "GhostlyIslandT3" then
         return GhostlyIslandT3
+    elseif selarea == "GhostlyIsland" then
+        return GhostlyIsland
     elseif selarea == "CastleBottom" then
         return CastleBottom
     elseif selarea == "CastleTop" then
         return CastleTop
+    elseif selarea == "Castle" then
+        return Castle
     elseif selarea == "MusicMeadowsT1" then
         return MusicMeadowsT1
     elseif selarea == "MusicMeadowsT2" then
         return MusicMeadowsT2
+    elseif selarea == "MusicMeadows" then
+        return MusicMeadows
     elseif selarea == "HauntedCastleT1" then
         return HauntedCastleT1
     elseif selarea == "HauntedCastleT2" then
         return HauntedCastleT2
+    elseif selarea == "HauntedCastle" then
+        return HauntedCastle
 
     elseif selarea == "Swamplands" then
         return Swamplands
@@ -979,6 +1134,8 @@ local function ghost_list_giver(selarea)
         return Mushroom_Forest
     elseif selarea == "Twisting_River" then
         return Twisting_River
+    elseif selarea == "FirstRoute" then
+        return FirstRoute
     elseif selarea == "Crystal_Cave" then
         return Crystal_Cave
     elseif selarea == "Farm" then
@@ -987,6 +1144,8 @@ local function ghost_list_giver(selarea)
         return Spaceship
     elseif selarea == "Barn" then
         return Barn
+    elseif selarea == "SecondRoute" then
+        return SecondRoute
     elseif selarea == "Behive" then
         return Behive
     elseif selarea == "DataStream" then
@@ -995,6 +1154,8 @@ local function ghost_list_giver(selarea)
         return ReverseCity
     elseif selarea == "BloxByteHQ" then
         return BloxByteHQ 
+    elseif selarea == "ThirdRoute" then
+        return ThirdRoute
     elseif selarea == "AgentsHQ" then
         return AgentsHQ
     elseif selarea == "UltimateFarmluckyCatInc" then
@@ -1034,6 +1195,8 @@ local function ghost_list_giver(selarea)
         return HiddenCaverns
     elseif selarea == "TreeTops" then
         return TreeTops
+    elseif selarea == "FourthRoute" then
+        return FourthRoute
 
 
 
