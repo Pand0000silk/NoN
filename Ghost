@@ -130,7 +130,7 @@ getgenv().shared = {
     autohitboss = false,
     boardspeed = 1,
     walkspeed = 16,
-    jumppower = 21
+    jumppower = 20
 }
 
 if not isfolder("FallAngelHub") then
@@ -426,7 +426,10 @@ local mainhub_arealist = {
     "Mine",
     "Beach",
     "UnderWater",
-    "Volcano"
+    "Volcano",
+    "LuckCat",
+    "UltimateFarmluckyCatInc",
+    "UltimateFarm" 
 }
 
 local ghostworld_arealist = {
@@ -438,7 +441,10 @@ local ghostworld_arealist = {
     "MusicMeadowsT1",
     "MusicMeadowsT2",
     "HauntedCastleT1",
-    "HauntedCastleT2"
+    "HauntedCastleT2",
+    "LuckCat",
+    "UltimateFarmluckyCatInc",
+    "UltimateFarm" 
 }
 
 local backdoor_arealist = {
@@ -455,6 +461,7 @@ local backdoor_arealist = {
     "ReverseCity",
     "BloxByteHQ",
     "AgentsHQ" ,
+    "LuckCat",
     "UltimateFarmluckyCatInc",
     "UltimateFarm" 
    
@@ -466,7 +473,8 @@ local thevoid_arealist = {
     "Makkie",
     "Thex",
     "Goro",
-    "UselessF"
+    "UltimateFarmluckyCatInc",
+    "UltimateFarm" 
 }
 
 local rement_arealist = {
@@ -479,7 +487,8 @@ local rement_arealist = {
     "UnderwaterRuins",
     "HiddenCaverns",
     "TreeTops",
-    "UltimateFarmRem",
+    "UltimateFarmluckyCatInc",
+    "UltimateFarm" 
 }
 
 local event_arealist = {
@@ -488,7 +497,8 @@ local event_arealist = {
     "Desert",
     "Graveyard",
     "WispPortal",
-    "UltimateFarmEVT"
+    "UltimateFarmluckyCatInc",
+    "UltimateFarm" 
 }
 
 if game.PlaceId == mainhub then
@@ -725,21 +735,87 @@ local function ghost_list_giver(selarea)
         "RAM"
     }
     local UltimateFarmluckyCatInc = {
+        "Islander",
+        "Magma Monster",
+        "Explorer",
+        "Penguin",
+    
+        "Viney",
+        "Blooming",
+        "Adventurer",
+        "Dragonfly",
+        
         "Programmer",
         "RAM",
         "Guardian",
         "Data Fury",
         "Byte",
         "Digi Cat",
+        
+        "Petal",
+        "Heated",
+        "Slime",
+        "Storm",
+        "Tech",
+        
+        "Tree Pixie",
+        "Caterpiller",
+        "Cave Ninja",
+        "Axolotl Princess",
+        
+        "Vampire",
+        "Scarecrow",
+        "Masked Spirit",
+        "Candy Thief",
+        "Wicked Witch",
+        "Frankenstein",
+        "Spooky Rad Businessman",
+        "Television",
+
         "Lucky Cat"
       }
     local UltimateFarm = {
+        "Islander",
+        "Magma Monster",
+        "Explorer",
+        "Penguin",
+    
+        "Viney",
+        "Blooming",
+        "Adventurer",
+        "Dragonfly",
+        
         "Programmer",
         "RAM",
         "Guardian",
-        "Data Fury"
+        "Data Fury",
+        "Byte",
+        "Digi Cat",
+        
+        "Petal",
+        "Heated",
+        "Slime",
+        "Storm",
+        "Tech",
+        
+        "Tree Pixie",
+        "Caterpiller",
+        "Cave Ninja",
+        "Axolotl Princess",
+        
+        "Vampire",
+        "Scarecrow",
+        "Masked Spirit",
+        "Candy Thief",
+        "Wicked Witch",
+        "Frankenstein",
+        "Spooky Rad Businessman",
+        "Television"
       }
     
+    local LuckCat = {
+        "Lucky Cat"
+      }
     --TheVoid
 
     local Covenk = {
@@ -762,15 +838,7 @@ local function ghost_list_giver(selarea)
         "Tech"
     }
     
-    local UselessF = {
-        "Petal",
-        "Heated",
-        "Slime",
-        "Storm",
-        "Tech"
-    }
-    
-    
+ 
 
 
     --rement
@@ -828,14 +896,7 @@ local function ghost_list_giver(selarea)
         "Caterpiller"
     }
 
-    local UltimateFarmRem = {
-        --26
-        "Tree Pixie",
-        "Caterpiller",
-        "Cave Ninja",
-        "Axolotl Princess"
-    }
-
+  
         --Event
     local Maze = {
         --20
@@ -867,17 +928,7 @@ local function ghost_list_giver(selarea)
         "Television"
     }
 
-    local UltimateFarmEVT = {
-        --26
-        "Vampire",
-        "Scarecrow",
-        "Masked Spirit",
-        "Candy Thief",
-        "Wicked Witch",
-        "Frankenstein",
-        "Spooky Rad Businessman",
-        "Television"
-    }
+ 
 
 
     if selarea == "Forest" then
@@ -961,8 +1012,8 @@ local function ghost_list_giver(selarea)
         return Thex
     elseif selarea == "Goro" then
         return Goro
-    elseif selarea == "UselessF" then
-        return UselessF
+    elseif selarea == "LuckCat" then
+        return LuckCat
     
     
     elseif selarea == "EnchantedJungle" then
@@ -983,8 +1034,9 @@ local function ghost_list_giver(selarea)
         return HiddenCaverns
     elseif selarea == "TreeTops" then
         return TreeTops
-    elseif selarea == "UltimateFarmRem" then
-        return UltimateFarmRem
+
+
+
     elseif selarea == "Maze" then
         return Maze
     elseif selarea == "SpookyForest" then
@@ -995,9 +1047,7 @@ local function ghost_list_giver(selarea)
         return Graveyard
     elseif selarea == "WispPortal" then
         return WispPortal
-    elseif selarea == "UltimateFarmEVT" then
-        return UltimateFarmEVT
-    
+
     end
 end
 
