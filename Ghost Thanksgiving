@@ -4,13 +4,13 @@ repeat
     task.wait()
 until game:IsLoaded()
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GSstarGamer/GUI/main/Mercury-edit.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pand0000silk/NoN/main/MercuryCustom"))()
 
 local GUI =
     Library:Create {
     Name = "FallAngle Hub",
     Size = UDim2.fromOffset(600, 500),
-    Theme = Library.Themes.GStheme,
+    Theme = Library.Themes.Rust,
     Link = "https://discord.gg/tbENWKpgku"
 }
 
@@ -435,7 +435,8 @@ local mainhub_arealist = {
     "IceCave",
     "LuckCat",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
 }
 
 local ghostworld_arealist = {
@@ -454,7 +455,8 @@ local ghostworld_arealist = {
     "HauntedCastle",
     "LuckCat",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
 }
 
 local backdoor_arealist = {
@@ -476,7 +478,8 @@ local backdoor_arealist = {
     "AgentsHQ" ,
     "LuckCat",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
    
 }
 
@@ -487,7 +490,8 @@ local thevoid_arealist = {
     "Thex",
     "Goro",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
 }
 
 local rement_arealist = {
@@ -503,7 +507,8 @@ local rement_arealist = {
     "SecondRoute",
     "TreeTops",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
 }
 
 local event_arealist = {
@@ -513,7 +518,8 @@ local event_arealist = {
     "Graveyard",
     "WispPortal",
     "UltimateFarmluckyCatInc",
-    "UltimateFarm" 
+    "UltimateFarm",
+    "EveryArea"
 }
 
 if game.PlaceId == mainhub then
@@ -812,6 +818,8 @@ local function ghost_list_giver(selarea)
         "Adventurer",
         "Dragonfly",
         
+		"Web Surfer",
+        "Binary",
         "Programmer",
         "RAM",
         "Guardian",
@@ -852,6 +860,8 @@ local function ghost_list_giver(selarea)
         "Adventurer",
         "Dragonfly",
         
+		"Web Surfer",
+        "Binary",
         "Programmer",
         "RAM",
         "Guardian",
@@ -1072,7 +1082,101 @@ local ThirdRoute = {
         "Axolotl Princess"
     }
     
-    if selarea == "Forest" then
+local EveryArea = {
+        --23
+        
+        "Lucky Cat",
+        "Businessman",
+        "Street Cat",
+        "Mechanic",
+        "Garbage Bin",
+        "Paper Bag Man",
+        "Rat",
+        "Worker",
+        "Pigeon",
+        "Bandit",
+        "Cowboy",
+        "Scientist",
+        "Zorg",
+        "Miner",
+        "Living Rock",
+        "Pharaoh",
+        "Mummy", 
+        "Pirate",
+        "Parrot",
+        "Diver",
+        "Mermaid",
+        "Islander",
+        "Magma Monster",
+        "Explorer",
+        "Penguin",
+        
+    
+        "Jester",
+        "Jelly",
+        "Pinwheel",
+        "Blue Ray",
+        "Spooky",
+        "Pixie",
+        "Rogue",
+        "Knight",
+        "Wizard",
+        "Horse",
+        "Bongo Man",
+        "Yellow Note",
+        "DJ",
+        "Purple Note",
+        "Viney",
+        "Blooming",
+        "Adventurer",
+        "Dragonfly",
+
+        "Frost Spirit",
+        "Snowstorm",
+        "Flutter Spirit",
+        "Mushroom",
+        "Water Spirit",
+        "Glitcher",
+        "Error 404",
+        "Rock Crystal",
+        "Farmer",
+        "Crazy Cow",
+        "Parasite",
+        "Super Computer",
+        "Digital Bandit",
+        "Trojan Horse",
+        "Honeydrop",
+        "Bee",
+        "Web Surfer",
+        "Binary",
+        "Byte",
+        "Digi Cat",
+        "Guardian",
+        "Data Fury",
+        "Programmer",
+        "RAM",
+        
+        "Night Wizard",
+        "Aqua Parrot",
+        "Gem Troll",
+        "Gryffin",
+        "Village Raider",
+        "Pig",
+        "Mad Hatter",
+        "Teapot",
+        "Scrap Hunter",
+        "Floppy Slime",
+        "Sea Walker",
+        "Fish Footman",
+        "Cave Ninja",
+        "Axolotl Princess",
+        "Tree Pixie",
+        "Caterpiller"
+    }
+    
+    if selarea == "EveryArea" then
+        return EveryArea
+    elseif selarea == "Forest" then
         return Forest
     elseif selarea == "BloxCity" then
         return BloxCity
@@ -2483,6 +2587,40 @@ Other:Button {
         GUI:Notification {
             Title = "Alert",
             Text = "Open console to see all ghosts in your area. press F9",
+            Duration = 3,
+            Callback = function()
+            end
+        }
+    end
+}
+
+Other:Button {
+    Name = "Pet Unboxer GUI",
+    Description = "Click here to Load the GUI",
+    Callback = function()
+
+        loadstring(game:HttpGet("https://pastebin.com/raw/sidmNxKh"))()
+
+        GUI:Notification {
+            Title = "Alert",
+            Text = "Loaded",
+            Duration = 3,
+            Callback = function()
+            end
+        }
+    end
+}
+
+Other:Button {
+    Name = "Board Unboxer GUI",
+    Description = "Click here to Load the GUI",
+    Callback = function()
+	
+        loadstring(game:HttpGet("https://pastebin.com/raw/nDzeLdFP"))()
+
+        GUI:Notification {
+            Title = "Alert",
+            Text = "Loaded",
             Duration = 3,
             Callback = function()
             end
