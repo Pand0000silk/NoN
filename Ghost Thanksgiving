@@ -818,6 +818,8 @@ local function ghost_list_giver(selarea)
         "Adventurer",
         "Dragonfly",
         
+        "Honeydrop",
+        "Bee",
 		"Web Surfer",
         "Binary",
         "Programmer",
