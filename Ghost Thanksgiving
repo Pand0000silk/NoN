@@ -196,7 +196,7 @@ local remnantb = {
 }
 
 local eventb = {
-    "Timber Scrooge",
+    "The Timber Scrooge",
     "The Nutcracker",
 	"Fluffy",
     "Meep"
