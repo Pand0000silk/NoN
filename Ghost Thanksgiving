@@ -196,9 +196,10 @@ local remnantb = {
 }
 
 local eventb = {
-    "The Headless Hallow",
-    "Frankie",
-    "Wisp Master"
+    "Timber Scrooge",
+    "The Nutcracker",
+	"Fluffy",
+    "Meep"
 }
 
 --maps
@@ -215,7 +216,7 @@ local remnant = 10252702151
 
 local bloxbyte = 5061426732
 
-local event = 7780343561
+local event = 4507873031
 
 local Farm =
     GUI:Tab {
@@ -513,10 +514,12 @@ local rement_arealist = {
 
 local event_arealist = {
     "Maze",
-    "SpookyForest",
-    "Desert",
-    "Graveyard",
-    "WispPortal",
+    "MainStreet",
+    "SkiSlope",
+    "FrozenLake",
+    "IceCavern",
+	"CEasterLand",
+	"GingerTown",
     "UltimateFarmluckyCatInc",
     "UltimateFarm",
     "EveryArea"
@@ -840,14 +843,19 @@ local function ghost_list_giver(selarea)
         "Cave Ninja",
         "Axolotl Princess",
         
-        "Vampire",
-        "Scarecrow",
-        "Masked Spirit",
-        "Candy Thief",
-        "Wicked Witch",
-        "Frankenstein",
-        "Spooky Rad Businessman",
-        "Television",
+        "Mini Elf",
+        "Reindeer",
+        "Skier",
+        "Frosted Penguin",
+        "Ice Skater",
+        "Snowman",
+		"Snow",
+        "Twinkle",
+        "Tree Spirit",
+		"Chick",
+        "Flower Pot",
+		"Holiday Spy",
+        "Gingerbread",
 
         "Lucky Cat"
       }
@@ -882,14 +890,19 @@ local function ghost_list_giver(selarea)
         "Cave Ninja",
         "Axolotl Princess",
         
-        "Vampire",
-        "Scarecrow",
-        "Masked Spirit",
-        "Candy Thief",
-        "Wicked Witch",
-        "Frankenstein",
-        "Spooky Rad Businessman",
-        "Television"
+        "Mini Elf",
+        "Reindeer",
+        "Skier",
+        "Frosted Penguin",
+        "Ice Skater",
+        "Snowman",
+		"Snow",
+        "Twinkle",
+        "Tree Spirit",
+		"Chick",
+        "Flower Pot",
+		"Holiday Spy",
+        "Gingerbread"
       }
     
     local LuckCat = {
@@ -977,34 +990,41 @@ local function ghost_list_giver(selarea)
 
   
         --Event
-    local Maze = {
-        --20
-        "Soul Caster",
-        "Bat"
+    local MainStreet = {
+        --1
+        "Mini Elf",
+        "Reindeer"
     }
 
-    local SpookyForest = {
-        --21
-        "Vampire",
-        "Scarecrow"
+    local SkiSlope = {
+        --1
+        "Skier",
+        "Frosted Penguin"
     }
 
-    local Desert = {
-        --22
-        "Masked Spirit",
-        "Candy Thief"
+    local FrozenLake = {
+        --1
+        "Ice Skater",
+        "Snowman",
+		"Snow"
     }
 
-    local Graveyard = {
-        --23
-        "Wicked Witch",
-        "Frankenstein"
+    local IceCavern = {
+        --1
+        "Twinkle",
+        "Tree Spirit"
     }
 
-    local WispPortal = {
-        --23
-        "Spooky Rad Businessman",
-        "Television"
+    local CEasterLand = {
+        --1
+        "Chick",
+        "Flower Pot"
+    }
+
+	local GingerTown = {
+        --1
+        "Holiday Spy",
+        "Gingerbread"
     }
 
  
@@ -1306,16 +1326,18 @@ local EveryArea = {
 
 
 
-    elseif selarea == "Maze" then
-        return Maze
-    elseif selarea == "SpookyForest" then
-        return SpookyForest
-    elseif selarea == "Desert" then
-        return Desert
-    elseif selarea == "Graveyard" then
-        return Graveyard
-    elseif selarea == "WispPortal" then
-        return WispPortal
+    elseif selarea == "MainStreet" then
+        return MainStreet
+    elseif selarea == "SkiSlope" then
+        return SkiSlope
+    elseif selarea == "FrozenLake" then
+        return FrozenLake
+    elseif selarea == "IceCavern" then
+        return IceCavern
+    elseif selarea == "CEasterLand" then
+        return CEasterLand
+	elseif selarea == "GingerTown" then
+        return GingerTown
 
     end
 end
@@ -2914,7 +2936,7 @@ elseif game.PlaceId == event then
         Callback = function()
             local Servers =
                 game.HttpService:JSONDecode(
-                game:HttpGet("https://games.roblox.com/v1/games/7780343561/servers/Public?sortOrder=Asc&limit=100")
+                game:HttpGet("https://games.roblox.com/v1/games/4507873031/servers/Public?sortOrder=Asc&limit=100")
             )
 
             for i, v in pairs(Servers.data) do
@@ -4316,12 +4338,17 @@ PlaceTeleporter:Button {
     Name = "Backdoor",
     Description = "Click to Teleport To Backdoor",
     Callback = function()
-        local A_1 = "Backdoor"
-        local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.TransportToPlace
-        Event:FireServer(A_1)
-    end
-}
+       game.HttpService:JSONDecode(
+                game:HttpGet("https://games.roblox.com/v1/games/4383092793/servers/Public?sortOrder=Asc&limit=100")
+            )
 
+            for i, v in pairs(Servers.data) do
+                if v.playing ~= v.maxPlayers then
+                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, v.id)
+                end
+            end
+        end
+    }
 PlaceTeleporter:Button {
     Name = "Bloxbyte HQ",
     Description = "Click to Teleport To Bloxbyte HQ",
