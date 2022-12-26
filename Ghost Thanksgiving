@@ -1782,6 +1782,29 @@ end
 --- BOXING FARM
 
 BoxFarm:Toggle {
+    Name = "Auto Event Pet Crate #1",
+    StartingState = false,
+    Description = nil,
+    Callback = function(state)
+        getgenv().AutoBox0 = state
+
+        spawn(
+            function()
+                while AutoBox0 == true do
+                    local A_1 = 0
+                    local A_2 = false
+                    local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.OpenPetCrate
+                    Event:FireServer(A_1, A_2)
+
+                    task.wait()
+                end
+            end
+        )
+    end
+}
+
+
+BoxFarm:Toggle {
     Name = "Auto Pet Crate #1",
     StartingState = false,
     Description = nil,
