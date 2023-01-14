@@ -355,11 +355,11 @@ local function ghost_todo()
         if lvl == 20 then
             return {"Autumn Jungler", "Durian Bunny"}
         elseif lvl == 21 then
-            return {"Autumn Jungler", "Durian Bunny", "Night wizard", "Aqua Parrot"}
+            return {"Autumn Jungler", "Durian Bunny", "Night Wizard", "Aqua Parrot"}
         elseif lvl == 22 then
-            return {"Night wizard", "Aqua Parrot", "Gem Troll", "Gryffin"}
+            return {"Night Wizard", "Aqua Parrot", "Gem Troll", "Gryffin"}
         elseif lvl == 23 then
-            return {"Night wizard", "Aqua Parrot", "Gem Troll", "Gryffin", "Village Raider", "Pig"}
+            return {"Night Wizard", "Aqua Parrot", "Gem Troll", "Gryffin", "Village Raider", "Pig"}
         elseif lvl == 24 then
             return {"Gem Troll", "Gryffin", "Village Raider", "Pig", "Scrap Hunter", "Floppy Slime"}
         elseif lvl == 25 then
