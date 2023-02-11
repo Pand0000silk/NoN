@@ -199,7 +199,7 @@ local eventb = {
     "The Timber Scrooge",
     "The Nutcracker",
 	"Fluffy",
-    "Mister Present"
+    "Meep"
 }
 
 --maps
@@ -355,17 +355,23 @@ local function ghost_todo()
         if lvl == 20 then
             return {"Autumn Jungler", "Durian Bunny"}
         elseif lvl == 21 then
-            return {"Autumn Jungler", "Durian Bunny", "Night Wizard", "Aqua Parrot"}
+            return {"Autumn Jungler", "Durian Bunny", "Night wizard", "Aqua Parrot"}
         elseif lvl == 22 then
-            return {"Night Wizard", "Aqua Parrot", "Gem Troll", "Gryffin"}
+            return {"Night wizard", "Aqua Parrot", "Gem Troll", "Gryffin"}
         elseif lvl == 23 then
-            return {"Night Wizard", "Aqua Parrot", "Gem Troll", "Gryffin", "Village Raider", "Pig"}
+            return {"Night wizard", "Aqua Parrot", "Gem Troll", "Gryffin", "Village Raider", "Pig"}
         elseif lvl == 24 then
             return {"Gem Troll", "Gryffin", "Village Raider", "Pig", "Scrap Hunter", "Floppy Slime"}
         elseif lvl == 25 then
             return {"Village Raider", "Pig", "Scrap Hunter", "Floppy Slime", "Sea Walker", "Fish Footman"}
         elseif lvl == 26 then
             return {"Scrap Hunter", "Floppy Slime", "Sea Walker", "Fish Footman", "Cave Ninja", "Axolotl Princess"}
+		elseif lvl == 27 then
+            return {"Sea Walker", "Fish Footman", "Cave Ninja", "Axolotl Princess", "Pawn", "Painted Rose"}
+		elseif lvl == 28 then
+            return {"Cave Ninja", "Axolotl Princess", "Pawn", "Painted Rose", "Knight", "Cheshire"}
+		elseif lvl == 29 then
+            return {"Pawn", "Painted Rose", "Knight", "Cheshire", "Bishop", "Playing Card"}
         end
     end
 end
@@ -507,6 +513,11 @@ local rement_arealist = {
     "HiddenCaverns",
     "SecondRoute",
     "TreeTops",
+	"CastleGarden",
+	"FantasyCourtyard",
+	"PhantomCastle",
+	"ThirdRoute",
+	"Crypt",
     "UltimateFarmluckyCatInc",
     "UltimateFarm",
     "EveryArea"
@@ -988,6 +999,31 @@ local function ghost_list_giver(selarea)
         "Caterpiller"
     }
 
+	local CastleGarden = {
+        --27
+        "Pawn",
+        "Painted Rose"
+    }
+
+    local FantasyCourtyard = {
+        --28
+        "Knight",
+        "Cheshire"
+    }
+
+    local PhantomCastle = {
+        --29
+        "Bishop",
+        "Playing Card"
+    }
+    
+    local Crypt = {
+        --29
+        "Rook",
+        "Wisp Candle"
+    }
+
+  
   
         --Event
     local MainStreet = {
@@ -1321,6 +1357,14 @@ local EveryArea = {
         return HiddenCaverns
     elseif selarea == "TreeTops" then
         return TreeTops
+		elseif selarea == "CastleGarden" then
+        return CastleGarden
+    elseif selarea == "FantasyCourtyard" then
+        return FantasyCourtyard
+    elseif selarea == "PhantomCastle" then
+        return PhantomCastle
+    elseif selarea == "Crypt" then
+        return Crypt
     elseif selarea == "FourthRoute" then
         return FourthRoute
 
@@ -2155,6 +2199,28 @@ BoxFarm:Toggle {
     end
 }
 
+BoxFarm:Toggle {
+    Name = "Auto Pet Crate #16",
+    StartingState = false,
+    Description = "WARNING! it will drains 50m gems Instantly!",
+    Callback = function(state)
+        getgenv().AutoBox16 = state
+
+        spawn(
+            function()
+                while AutoBox16 == true do
+                    local A_1 = 17
+                    local A_2 = false
+                    local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.OpenPetCrate
+                    Event:FireServer(A_1, A_2)
+
+                    task.wait()
+                end
+            end
+        )
+    end
+}
+
 BoxFarm:Button {
     Name = "<--Board Crates-->",
     Description = nil,
@@ -2598,6 +2664,28 @@ Bosses:Toggle {
                     local A_1 = 32
                     local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.UseItem
                     Event:FireServer(A_1)
+
+                    task.wait(5)
+                end
+            end
+        )
+    end
+}
+
+Bosses:Toggle {
+    Name = "Auto Use Glitchy X gum",
+    StartingState = false,
+    Description = "This is just for me",
+    Callback = function(state)
+        getgenv().autouseE2B = state
+
+        spawn(
+            function()
+                while autouseE2B == true do
+                    local A_1 = 112
+local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.UseItem
+Event:FireServer(A_1)
+
 
                     task.wait(5)
                 end
@@ -4361,17 +4449,12 @@ PlaceTeleporter:Button {
     Name = "Backdoor",
     Description = "Click to Teleport To Backdoor",
     Callback = function()
-       game.HttpService:JSONDecode(
-                game:HttpGet("https://games.roblox.com/v1/games/4383092793/servers/Public?sortOrder=Asc&limit=100")
-            )
+        local A_1 = "Backdoor"
+        local Event = game:GetService("ReplicatedStorage").Network.ToServer.Requests.TransportToPlace
+        Event:FireServer(A_1)
+    end
+}
 
-            for i, v in pairs(Servers.data) do
-                if v.playing ~= v.maxPlayers then
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, v.id)
-                end
-            end
-        end
-    }
 PlaceTeleporter:Button {
     Name = "Bloxbyte HQ",
     Description = "Click to Teleport To Bloxbyte HQ",
